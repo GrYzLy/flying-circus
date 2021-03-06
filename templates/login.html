@@ -2,9 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Flying Circus English School</title>
 </head>
 <body>
-      <p>login</p>
+<p>Welcome to your English Test!</p>
+<p>This is a mock - login.html</p>
+
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+
+<form method="POST">
+    <input type="email" name="email" placeholder="E-mail"/><br/>
+    <input type="password" name="password" placeholder="Password"/><br/>
+    <input type="submit" value="Submit"/>
+</form>
 </body>
 </html>

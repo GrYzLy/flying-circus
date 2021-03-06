@@ -31,6 +31,7 @@ def logout():
     session.pop('question_count', None)
     session.pop('points', None)
 
+    return render_template('index.html')
 
 @app.route('/result')
 def result():
@@ -53,7 +54,7 @@ def is_existing_user():
 
 def is_password_ok():
     actual_password = data.users[request.form['email']]
-    received_password = request.form['password']
+    received_password = request.form['password'].encode('utf-8')
 
     return bcrypt.checkpw(received_password, actual_password)
 

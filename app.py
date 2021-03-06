@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 
+import data
+
 app = Flask(__name__)
 
 app.secret_key = 'NOT_SO_SECRET'
@@ -22,17 +24,12 @@ def login():
     return render_template('login.html', message=message)
 
 
-def has_authenticated():
-    is_existing_user = True
-    is_password_ok = True
+@app.route('/logout')
+def logout():
+    session.pop('email', None)
+    session.pop('question_count', None)
+    session.pop('points', None)
 
-    return is_existing_user and is_password_ok
-
-
-def set_session_data():
-    session['email'] = request.form['email']
-    session['question_count'] = 0
-    session['points'] = 0
 
 @app.route('/result')
 def result():
@@ -42,6 +39,28 @@ def result():
 @app.route('/test')
 def test():
     return render_template('test.html')
+
+
+def has_authenticated():
+    return is_existing_user() and is_password_ok()
+
+
+# helper methods
+def is_existing_user():
+    return request.form['email'] in data.users
+
+
+def is_password_ok():
+    actual_password = data.users[request.form['email']].encode('utf-8')
+    received_password = request.form['password']
+
+    return actual_password == received_password
+
+
+def set_session_data():
+    session['email'] = request.form['email']
+    session['question_count'] = 0
+    session['points'] = 0
 
 
 if __name__ == '__main__':

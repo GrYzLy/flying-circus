@@ -1,4 +1,4 @@
-users = {'jan@kowalski.pl': 'haslo'}
+users = {'jan@kowalski.pl': b'$2b$12$iYcpvsfCTqkybo3l/P51euYZnpW8Px3egUjKMtbxPkpAlqf92Y6mW'}
 questions = {
     "I ______ bus on Mondays.": {
         "a. 'm going to work with": False,

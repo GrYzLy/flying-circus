@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session
+import bcrypt
 
 import data
 
@@ -51,10 +52,10 @@ def is_existing_user():
 
 
 def is_password_ok():
-    actual_password = data.users[request.form['email']].encode('utf-8')
+    actual_password = data.users[request.form['email']]
     received_password = request.form['password']
 
-    return actual_password == received_password
+    return bcrypt.checkpw(received_password, actual_password)
 
 
 def set_session_data():

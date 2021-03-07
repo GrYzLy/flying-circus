@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <p>Welcome to your English Test!</p>
+    <p class="header">Welcome to your English Test!</p>
         {% if session.email %}
             <p>Logged in as {{session.email}}. <a href="/logout">Log out</a></p>
             <p>Start the test <a href="/test">here</a>!</p>

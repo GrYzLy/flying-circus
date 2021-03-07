@@ -2,7 +2,7 @@
 
 {% block content %}
 
-        <p>Welcome to this English Test!</p>
+        <p class="header">Welcome to this English Test!</p>
         <p>Logged in as {{session.email}}. <a href="/logout">Log out</a></p>
         <p>{{question[0]}}</p>
         <form class="form" method="post" action="/submit_question">

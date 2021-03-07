@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Flying Circus English School</title>
-    </head>
-    <body>
+{% extends 'base.html' %}
+{% block content %}
         <p>Welcome to this English Test!</p>
         <p>Logged in as {{ session.email }}. <a href="/logout">Log out</a></p>
         <p>Your results: {{ session.points }}</p>
-    </body>
-</html>
+
+{% endblock %}
+

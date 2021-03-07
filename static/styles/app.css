@@ -1,0 +1,29 @@
+body {
+    font-family: Arial;
+}
+
+.container {
+    width: 300px;
+    margin: 0 auto;
+}
+
+.form {
+}
+
+.form input {
+    margin: 10px 0;
+    padding: 5px;
+}
+
+.form input[type="submit"] {
+    background-color: #5c5ce7;
+    border: 0;
+    border-radius: 5px;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.form input[type="submit"]:hover {
+    background-color: #2222c4;
+}

@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Flying Circus English School</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
     <p>Welcome to your English Test!</p>
         {% if session.email %}
             <p>Logged in as {{session.email}}. <a href="/logout">Log out</a></p>
@@ -12,5 +8,5 @@
         {% else %}
             <p>If you want to fill in the test, please <a href="/login">log in!</a></p>
         {% endif %}
-</body>
-</html>
+
+{% endblock %}

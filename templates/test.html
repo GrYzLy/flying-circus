@@ -1,18 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Flying Circus English School</title>
-    </head>
-    <body>
+{% extends 'base.html' %}
+
+{% block content %}
+
         <p>Welcome to this English Test!</p>
         <p>Logged in as {{session.email}}. <a href="/logout">Log out</a></p>
         <p>{{question[0]}}</p>
-        <form method="post" action="/submit_question">
+        <form class="form" method="post" action="/submit_question">
             {% for answer in question[1] %}
                 <input type="radio" name="answer" value="{{loop.index - 1}}">{{ answer }}</input><br />
             {% endfor %}
             <input type="submit" value="Answer" />
         </form>
-    </body>
-</html>
+{% endblock %}

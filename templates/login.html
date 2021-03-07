@@ -1,21 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Flying Circus English School</title>
-</head>
-<body>
-<p>Welcome to your English Test!</p>
+{% extends 'base.html' %}
+
+{% block content %}
+    <p>Welcome to your English Test!</p>
 <p>This is a mock - login.html</p>
 
     {% if message %}
         <p>{{ message }}</p>
     {% endif %}
 
-<form method="POST">
+<form class="form" method="POST">
     <input type="email" name="email" placeholder="E-mail"/><br/>
     <input type="password" name="password" placeholder="Password"/><br/>
     <input type="submit" value="Submit"/>
+
+
 </form>
-</body>
-</html>
+
+{% endblock %}
